@@ -7,7 +7,7 @@ import (
 
 func main() {
 	for {
-		fmt.Println("vim-go")
+		fmt.Println("testing aws code build")
 		d, _ := time.ParseDuration("5s")
 		time.Sleep(d)
 	}
