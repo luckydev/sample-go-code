@@ -1,15 +1,21 @@
 package main
 
 import (
-	"fmt"
-	"time"
+	"io"
+	"log"
+	"net/http"
 )
 
+const version string = "2.0.1"
+
+// VersionHandler handles incoming requests to /version
+// and just returns a simple version number
+func versionHandler(w http.ResponseWriter, r *http.Request) {
+	io.WriteString(w, version)
+}
+
 func main() {
-	for {
-		fmt.Println("testing aws code build")
-		fmt.Println("testing aws code pipeline as well")
-		d, _ := time.ParseDuration("5s")
-		time.Sleep(d)
-	}
+	log.Printf("Listening on port 8000...")
+	http.HandleFunc("/version", versionHandler)
+	http.ListenAndServe(":8000", nil)
 }

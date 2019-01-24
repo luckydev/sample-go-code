@@ -5,10 +5,14 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Compiling the Go code...
-      - go build main.go 
+      - go build main.go -o app
   post_build:
     commands:
       - echo Build completed on `date`
 artifacts:
   files:
-    - main
+    - app
+    - appspec.yml
+    - buildspec.yml
+    - codedeploy/*
+      
