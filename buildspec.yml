@@ -10,7 +10,7 @@ phases:
       - echo GOPATH - $GOPATH
       - echo GOROOT - $GOROOT
       - echo Moving packages
-      - cp -r ./vendor/* /go/
+      - cp -r ./vendor/* /go/src/
       - ls -al /go/
   build:
     commands:
