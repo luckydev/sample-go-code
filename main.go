@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/pkg/errors"
 	"io"
 	"log"
 	"net/http"
@@ -15,7 +16,15 @@ func versionHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	err := returnError()
+	if err != nil {
+		log.Println("Error found! Created for sample. Can ignore")
+	}
 	log.Printf("Listening on port 8000!")
 	http.HandleFunc("/version", versionHandler)
 	http.ListenAndServe(":8000", nil)
+}
+
+func returnError() error {
+	return errors.New("Returning new error")
 }

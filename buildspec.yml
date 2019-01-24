@@ -1,11 +1,22 @@
 version: 0.2
 
+env:
+  variables:
+    GOOS: "linux"
 phases:
+  install:
+    run-as: "ubuntu"
+    commands: 
+      - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+  pre-build:
+    run-as: "ubuntu"
+    commands: 
+      - dep ensure
   build:
     commands:
       - echo Build started on `date`
       - echo Compiling the Go code...
-      - GOOS=linux go build -o app main.go 
+      - go build -o app main.go 
   post_build:
     commands:
       - echo Build completed on `date`
