@@ -4,12 +4,6 @@ env:
   variables:
     GOOS: "linux"
 phases:
-  install:
-    commands: 
-      - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
-  pre_build:
-    commands: 
-      - dep ensure
   build:
     commands:
       - echo Build started on `date`
