@@ -8,7 +8,7 @@ phases:
     run-as: "ubuntu"
     commands: 
       - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
-  pre-build:
+  pre_build:
     run-as: "ubuntu"
     commands: 
       - dep ensure
