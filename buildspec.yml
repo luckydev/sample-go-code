@@ -6,24 +6,18 @@ env:
 phases:
   install:
     commands: 
-      - echo working directory is
-      - pwd | echo 
       - echo CODEBUILD_SRC_DIR - $CODEBUILD_SRC_DIR
       - echo GOPATH - $GOPATH
       - echo GOROOT - $GOROOT
-      - echo Getting packages
-      - go get github.com/pkg/errors
+      - echo Moving packages
+      - cp -r ./vendor/* $GOPATH/src/
   build:
     commands:
-      - echo working directory is
-      - pwd | echo 
       - echo Build started on `date`
       - echo Compiling the Go code...
       - go build -o app main.go 
   post_build:
     commands:
-      - echo working directory is
-      - pwd | echo 
       - echo Build completed on `date`
 artifacts:
   files:
