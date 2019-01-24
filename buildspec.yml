@@ -4,6 +4,13 @@ env:
   variables:
     GOOS: "linux"
 phases:
+  install:
+    commands: 
+      - echo CODEBUILD_SRC_DIR - $CODEBUILD_SRC_DIR
+      - echo GOPATH - $GOPATH
+      - echo GOROOT - $GOROOT
+      - echo Getting packages
+      - go get github.com/pkg/errors
   build:
     commands:
       - echo Build started on `date`
