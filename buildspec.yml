@@ -10,7 +10,7 @@ phases:
       - echo GOPATH - $GOPATH
       - echo GOROOT - $GOROOT
       - echo Moving packages
-      - cp -r ./vendor/* $GOPATH/src/
+      - cp -r ./vendor/* $CODEBUILD_SRC_DIR/
   build:
     commands:
       - echo Build started on `date`
